@@ -1,32 +1,37 @@
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
+
+import { useToast } from "primevue/usetoast";
+
+const toast = useToast();
+
+function showSuccess() {
+    toast.add({
+        severity: "success",
+        summary: "Success Message",
+        detail: "Message Content",
+        life: 3000,
+    });
+}
 </script>
 
 <template>
-  <h5>Ripple</h5>
-  <div class="card-container flex">
-      <div class="card primary-box p-ripple" v-ripple>Default</div>
-  </div>
+    <Toast />
+    <Button label="Success" class="p-button-success" @click="showSuccess" />
 
+    <h5>Ripple</h5>
+    <div class="card-container flex">
+        <div class="card primary-box p-ripple" v-ripple>Default</div>
+    </div>
 
-  <h5>StyleClass</h5>
-  <Button label="Show" class="mr-2" v-styleclass="{ selector: '.box', enterClass: 'hidden', enterActiveClass: 'my-fadein' }" />
-  <Button label="Hide" v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'hidden' }" />
-  <div class="box hidden">Content</div>
+    <h5>StyleClass</h5>
+    <Button label="Show" class="mr-2" v-styleclass="{ selector: '.box', enterClass: 'hidden', enterActiveClass: 'my-fadein' }" />
+    <Button label="Hide" v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'hidden' }" />
+    <div class="box hidden">Content</div>
 </template>
 
 <style lang="scss" scoped>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
- 
-}
-
 .card-container {
     background-color: var(--surface-300);
     padding: 1rem;
