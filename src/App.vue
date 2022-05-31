@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-
+import vRipple from 'primevue/ripple';
 import { useToast } from "primevue/usetoast";
 
 const toast = useToast();
@@ -24,11 +24,6 @@ function showSuccess() {
     <div class="card-container flex">
         <div class="card primary-box p-ripple" v-ripple>Default</div>
     </div>
-
-    <h5>StyleClass</h5>
-    <Button label="Show" class="mr-2" v-styleclass="{ selector: '.box', enterClass: 'hidden', enterActiveClass: 'my-fadein' }" />
-    <Button label="Hide" v-styleclass="{ selector: '.box', leaveActiveClass: 'my-fadeout', leaveToClass: 'hidden' }" />
-    <div class="box hidden">Content</div>
 </template>
 
 <style lang="scss" scoped>
